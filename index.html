@@ -1,11 +1,14 @@
+עכשיו העתק את הקוד הזה במקום הקוד הקיים ב-index.html:
+
+```html
 <!DOCTYPE html>
 <html dir="rtl" lang="he">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>מעקב תקציב חודשי</title>
+    <title>ניהול תקציב משפחתי</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdn.jsdelivr.net/npm/chart.js" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body class="bg-gray-100">
     <div class="container mx-auto p-4">
@@ -15,17 +18,17 @@
         <div class="bg-white rounded-lg shadow p-6 mb-6">
             <h2 class="text-xl font-bold mb-4">הוספת הוצאה</h2>
             <form id="expenseForm">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="grid md:grid-cols-2 gap-4">
                     <div>
                         <label class="block mb-2">סוג הוצאה</label>
-                        <select id="expenseType" class="w-full p-2 border rounded">
-                            <option value="fixed">קבועה</option>
-                            <option value="variable">משתנה</option>
+                        <select id="expenseType" class="w-full p-2 border rounded" required>
+                            <option value="הוצאות קבועות">הוצאות קבועות</option>
+                            <option value="הוצאות משתנות">הוצאות משתנות</option>
                         </select>
                     </div>
                     <div>
                         <label class="block mb-2">קטגוריה</label>
-                        <select id="category" class="w-full p-2 border rounded"></select>
+                        <select id="category" class="w-full p-2 border rounded" required></select>
                     </div>
                     <div>
                         <label class="block mb-2">סכום</label>
@@ -35,25 +38,25 @@
                         <label class="block mb-2">תאריך</label>
                         <input type="date" id="date" class="w-full p-2 border rounded" required>
                     </div>
-                    <div>
+                    <div class="md:col-span-2">
                         <label class="block mb-2">תיאור</label>
                         <input type="text" id="description" class="w-full p-2 border rounded">
                     </div>
                 </div>
-                <button type="submit" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                <button type="submit" class="mt-4 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
                     הוסף הוצאה
                 </button>
             </form>
         </div>
 
-        <!-- סיכום -->
+        <!-- סיכום חודשי וגרף -->
         <div class="grid md:grid-cols-2 gap-6 mb-6">
             <div class="bg-white rounded-lg shadow p-6">
                 <h2 class="text-xl font-bold mb-4">סיכום חודשי</h2>
                 <div id="monthlyStats"></div>
             </div>
             <div class="bg-white rounded-lg shadow p-6">
-                <h2 class="text-xl font-bold mb-4">גרף התפלגות</h2>
+                <h2 class="text-xl font-bold mb-4">גרף התפלגות הוצאות</h2>
                 <canvas id="expenseChart"></canvas>
             </div>
         </div>
@@ -64,17 +67,17 @@
                 <h2 class="text-xl font-bold">רשימת הוצאות</h2>
                 <div>
                     <button onclick="exportToPDF()" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 ml-2">
-                        PDF ייצוא
+                        ייצוא PDF
                     </button>
                     <button onclick="exportToExcel()" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
-                        Excel ייצוא
+                        ייצוא Excel
                     </button>
                 </div>
             </div>
             <div class="overflow-x-auto">
                 <table class="w-full">
-                    <thead class="bg-gray-50">
-                        <tr>
+                    <thead>
+                        <tr class="bg-gray-50">
                             <th class="p-2 text-right">תאריך</th>
                             <th class="p-2 text-right">סוג</th>
                             <th class="p-2 text-right">קטגוריה</th>
