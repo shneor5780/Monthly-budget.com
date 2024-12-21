@@ -1,4 +1,3 @@
-```javascript
 // הגדרת קטגוריות קבועות
 const CATEGORIES = {
     'הוצאות קבועות': [
@@ -317,4 +316,3 @@ function exportToPDF() {
     const fileName = `הוצאות-${new Date().toLocaleDateString('he-IL')}.pdf`;
     doc.save(fileName);
 }
-``` 
