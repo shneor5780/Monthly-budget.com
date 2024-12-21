@@ -5,8 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ניהול תקציב משפחתי</title>
+    <!-- ספריות נדרשות -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
 </head>
 <body class="bg-gray-100">
     <div class="container mx-auto p-4">
@@ -45,6 +49,21 @@
                     הוסף הוצאה
                 </button>
             </form>
+        </div>
+
+        <!-- תקציב חודשי -->
+        <div class="bg-white rounded-lg shadow p-6 mb-6">
+            <h2 class="text-xl font-bold mb-4">תקציב חודשי</h2>
+            <div class="grid md:grid-cols-2 gap-4">
+                <div>
+                    <label class="block mb-2">תקציב הוצאות קבועות</label>
+                    <input type="number" id="fixedBudget" class="w-full p-2 border rounded">
+                </div>
+                <div>
+                    <label class="block mb-2">תקציב הוצאות משתנות</label>
+                    <input type="number" id="variableBudget" class="w-full p-2 border rounded">
+                </div>
+            </div>
         </div>
 
         <!-- סיכום חודשי וגרף -->
@@ -89,6 +108,9 @@
             </div>
         </div>
     </div>
+
+    <!-- קישור לקובץ הJS -->
     <script src="script.js"></script>
 </body>
 </html>
+```
