@@ -172,7 +172,7 @@ function updateStats(expenses) {
                     <span>תקציב:</span>
                     <span>${variableBudget.toLocaleString()} ₪</span>
                 </div>
-                <div class="flex justify-between">
+                <div class="flex justify בין">
                     <span>הוצאות בפועל:</span>
                     <span>${totalVariable.toLocaleString()} ₪</span>
                 </div>
