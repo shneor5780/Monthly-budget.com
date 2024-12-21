@@ -1,5 +1,3 @@
-עכשיו העתק את הקוד המלא הזה לקובץ החדש script.js:
-
 ```javascript
 // הגדרת קטגוריות קבועות
 const CATEGORIES = {
