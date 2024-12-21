@@ -39,3 +39,44 @@ function updateCategories() {
         .map(cat => `<option value="${cat}">${cat}</option>`)
         .join('');
 }
+// הגדרת קטגוריות קבועות
+const CATEGORIES = {
+    'הוצאות קבועות': [
+        'שכירות/משכנתא',
+        'ארנונה',
+        'חשמל',
+        'מים',
+        'גז',
+        'ועד בית',
+        'אינטרנט',
+        'ביטוחים',
+        'חינוך'
+    ],
+    'הוצאות משתנות': [
+        'מזון וסופר',
+        'תחבורה/דלק',
+        'קניות',
+        'בילויים',
+        'בריאות',
+        'ביגוד',
+        'מתנות',
+        'אחר'
+    ]
+};
+
+// אתחול המערכת
+document.addEventListener('DOMContentLoaded', () => {
+    updateCategories();
+    document.getElementById('expenseType').addEventListener('change', updateCategories);
+});
+
+// עדכון קטגוריות בהתאם לסוג ההוצאה
+function updateCategories() {
+    const type = document.getElementById('expenseType').value;
+    const categorySelect = document.getElementById('category');
+    const categories = CATEGORIES[type] || [];
+    
+    categorySelect.innerHTML = categories
+        .map(cat => `<option value="${cat}">${cat}</option>`)
+        .join('');
+}
