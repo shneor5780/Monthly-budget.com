@@ -317,4 +317,4 @@ function exportToPDF() {
     const fileName = `הוצאות-${new Date().toLocaleDateString('he-IL')}.pdf`;
     doc.save(fileName);
 }
-```
+``` 
